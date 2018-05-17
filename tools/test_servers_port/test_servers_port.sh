@@ -1,3 +1,4 @@
+#!/bin/ksh
 LOG=/tmp/pinghost.log
 REMOTEPORT=22
 TIMEOUT=1

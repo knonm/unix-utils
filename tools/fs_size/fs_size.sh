@@ -1,11 +1,12 @@
 #!/bin/ksh
-# Checks if filesystem 'u01' exists and it's size on servers from 'u01_scripts.cfg' file
+# Checks if filesystem 'fsname' exists and it's size on servers from 'servers.txt' file
 
+FSNAME='/fsname'
 OUT=fs_size_`date +%Y-%m-%d_%H-%M`.out
 ERR=fs_size_`date +%Y-%m-%d_%H-%M`.err
 TEMP_FS=fs_size_`date +%Y-%m-%d_%H-%M`.tmp
 
-for svr in $(cat fs_size.txt)
+for svr in $(cat servers.txt)
 do
   echo $svr 1>>$OUT 2>>$ERR
 
@@ -19,10 +20,10 @@ do
     if [ "$?" = "0" ]
     then
       ssh -q $svr "df -g | head -n1" 1>$TEMP_FS
-      ssh -q $svr "df -g | grep -i /u01" 1>>$TEMP_FS
+      ssh -q $svr "df -g | grep -i $FSNAME" 1>>$TEMP_FS
     else
       ssh -q $svr "df -h | head -n1" 1>$TEMP_FS
-      ssh -q $svr "df -h | grep -i /u01" 1>>$TEMP_FS
+      ssh -q $svr "df -h | grep -i $FSNAME" 1>>$TEMP_FS
     fi
 
     while read fs

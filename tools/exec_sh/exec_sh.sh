@@ -25,7 +25,7 @@ done < $CMDFILE
 echo "=============================================================" 1>>$OUTFILE
 echo "=============================================================" 1>>$ERRFILE
 
-for srv in $(cat exec_sh.txt)
+for srv in $(cat servers.txt)
 do
 
   echo "$srv" 1>>$OUTFILE

@@ -11,9 +11,7 @@ LOG=~/cp_scripts_$(date +%Y-%m-%d_%H-%M).log
 
 cd ~ 1>>/dev/null 2>&1
 
-echo ""
-echo "Preparing files ..."
-echo ""
+echo "\nPreparing files ...\n"
 
 rm $FNAME.tar 1>>/dev/null 2>&1
 
@@ -26,9 +24,7 @@ ssh -q -p $SSHPORT $USERNAME@$GATEWAY "cd ~; rm -rf $FNAME/; tar -xvf $FNAME.tar
 for svr in $(cat $SERVERS)
 do
 
-  echo ""
-  echo "Copying to server $svr ..."
-  echo ""
+  echo "\nCopying to server $svr ...\n"
 
   cmd="ssh -q $svr -p $SSHPORT 'cd ~; rm -rf $FNAME/; tar -xvf $FNAME.tar; rm $FNAME.tar'"
 

@@ -1,13 +1,13 @@
 # System variables / Environment variables
-echo $ORACLE_HOME
-echo $ORACLE_BASE
-echo $ORACLE_SID
-echo $LD_LIBRARY_PATH
+echo $VAR1
+echo $VAR2
+echo $VAR3
+echo $VAR4
 
-printenv ORACLE_HOME
-printenv ORACLE_BASE
-printenv ORACLE_SID
-printenv LD_LIBRARY_PATH
+printenv VAR1
+printenv VAR2
+printenv VAR3
+printenv VAR4
 
 # Show all aliases
 alias
